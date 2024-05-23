@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reparation extends Model
 {
     use HasFactory;
+    protected $table= 'repairs';
+    
     protected $fillable=[
         'description',
         'status',
@@ -18,14 +20,14 @@ class Reparation extends Model
         'mechanicID',
         'vehicleID'
     ];
-    public function vehicule()
-{
-    return $this->belongsTo(Vehicule::class);
-}
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicule::class, 'vehicleID');
+    }
 
 public function mecanicien()
 {
-    return $this->belongsTo(Mecanicien::class);
+    return $this->belongsTo(Mecanicien::class,'mechanicID');
 }
 
 }
