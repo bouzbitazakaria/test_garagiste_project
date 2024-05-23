@@ -1,16 +1,46 @@
 @extends('app')
 
-@section('content')
-    <div class="bg-light p-5 rounded">
-        @auth
-        <h1>Dashboard</h1>
-        <p class="lead">Only authenticated clients can access this section.</p>
-        <a class="btn btn-lg btn-primary" href="https://codeanddeploy.com" role="button">View more tutorials here &raquo;</a>
-        @endauth
+@section('app_content')
 
-        @guest
-        <h1>Homepage</h1>
-        <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
-        @endguest
-    </div>
+        @if (\Request::is('/'))  
+            @include('clientHome.sidbare')
+            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+                @include('clientHome.navbar')
+                <div class="container-fluid py-2">
+                    @yield('content')
+                </div>
+            </main>
+
+        @elseif (\Request::is('vehicles'))  
+        @include('clientHome.sidbare')
+            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+                @include('clientHome.navbar')
+                <div class="container-fluid py-4">
+                    @yield('content')
+                </div>
+            </main>
+
+        @elseif (\Request::is('vehicles/create')) 
+        @include('clientHome.sidbare')
+            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+                @include('clientHome.navbar')
+                <div class="container-fluid py-4">
+                    @yield('content')
+                </div>
+            </main>
+
+            @elseif (\Request::is('profil')) 
+            @include('clientHome.sidbare')
+            <main class="main-content position-relative max-height-vh-100 h-90 mt-1 border-radius-lg overflow-hidden">
+                @include('clientHome.navbar')
+                <div class="container-fluid py-0 overflow-auto"> 
+                    @yield('content')
+                </div>
+            </main>
+            
+    
+        @endif
+
+    
+
 @endsection

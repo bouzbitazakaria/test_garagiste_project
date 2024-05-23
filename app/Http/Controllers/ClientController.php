@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\User;
 
 class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::with('vehicles')->get();
         return view('clients.index', compact('clients'));
     }
 
@@ -20,20 +21,42 @@ class ClientController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            'adresse' => 'required',
-            'numero_telephone' => 'required',
-            'adresse_email' => 'required|email',
+        $request->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'address' => 'required',
+            'phoneNumber' => 'required',
+            'username' => 'required|unique:users,username',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
         ]);
 
-        Client::create($validatedData);
+        $userData['username'] = $request->username;
+        $userData['email'] = $request->email;
+        $userData['password'] = bcrypt($request->password); 
+        $userData['role'] = 'client';
 
-        return redirect()->route('clients.index')->with('success', 'Client added successfully!');
+        $user = User::create($userData);
+        if ($user) {
+           
+            $clientData['firstName'] = $request->firstName;
+            $clientData['lastName'] = $request->lastName;
+            $clientData['address'] = $request->address;
+            $clientData['phoneNumber'] = $request->phoneNumber;
+            $clientData['userID'] = $user->id;
+
+            $client = Client::create($clientData);
+
+            if ($client) {
+                return redirect()->route('clients.index');
+            }
+        } else {
+            redirect()->back()->withErrors(['error' => 'error creating client']);
+        }
     }
 
     public function edit(Client $client)
+
     {
         return view('clients.edit', compact('client'));
     }
@@ -41,22 +64,23 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         $validatedData = $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
-            'adresse' => 'required',
-            'numero_telephone' => 'required',
-            'adresse_email' => 'required|email',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'address' => 'required',
+            'phoneNumber' => 'required',
         ]);
 
         $client->update($validatedData);
 
-        return redirect()->route('clients.index')->with('success', 'Client updated successfully!');
+        return  redirect()->back()->with('success', 'Client updated successfully!');
     }
 
     public function destroy(Client $client)
     {
+        
         $client->delete();
+        User::where('id',$client->userID)->delete();
 
-        return redirect()->route('clients.index')->with('success', 'Client deleted successfully!');
+        return redirect()->back()->with('success', 'Client deleted successfully!');
     }
 }

@@ -19,6 +19,7 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css" rel="stylesheet" />
+  <link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -29,6 +30,7 @@
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
+
 
   <!-- Plugin for the charts, full documentation here: https://www.chartjs.org/ -->
   <script src="../assets/js/plugins/chartjs.min.js"></script>

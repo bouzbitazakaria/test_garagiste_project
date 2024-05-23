@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\MecanicienController;
+use App\Http\Controllers\ProfilContoller;
+use App\Http\Controllers\VehiculeController;
+use App\Models\Mecanicien;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +47,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::resource('clients', ClientController::class);
+        Route::resource('vehicles' , VehiculeController::class);
+        Route::resource('mecaniciens',MecanicienController::class);
+        Route::resource('profil',ProfilContoller::class);
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });

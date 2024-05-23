@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('content')
+@section('app_content')
 <main class="main-content  mt-0">
     <section>
       <div class="page-header min-vh-75">
@@ -9,13 +9,13 @@
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
-                  <h3 class="font-weight-bolder text-info text-gradient">Welcome to Garagite</h3>
+                  <h3 class="font-weight-bolder text-info text-gradient">Welcome to Garagiste</h3>
                 </div>
                 <div class="card-body">
                   <form role="form"method="post" action="{{ route('login.perform') }}">
                     @csrf
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <label>Email</label>
+                    <label>Username</label>
                     <div class="mb-3">
                       <input type="text" class="form-control" name="username" id="username" placeholder="username" aria-label="username" aria-describedby="username-addon">
                       @if ($errors->has('username'))

@@ -22,7 +22,7 @@
                   <span class="d-sm-inline d-none">Sign Out</span>
               </a>
           </li>
-          
+          </ul>
       </div>
   </div>
 </nav>

@@ -24,7 +24,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('clients') || Request::is('clients/create') ? 'active' : '') }} " href="{{route('clients.index')}}">
+        <a class="nav-link {{ (Request::is('vehicles') || Request::is('clients/create') ? 'active' : '') }} " href="{{route('vehicles.index')}}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>customer-support</title>
@@ -41,11 +41,11 @@
                     </g>
                 </svg>
             </div>
-            <span class="nav-link-text ms-1">Clients</span>
+            <span class="nav-link-text ms-1">Vehicles</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('mecaniciens') || Request::is('mecaniciens/create') ? 'active' : '') }} " href="{{route('mecaniciens.index')}}">
+        <a class="nav-link {{ (Request::is('profil') ? 'active' : '') }} " href="{{route('profil.index')}}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>customer-support</title>
@@ -62,7 +62,7 @@
                     </g>
                 </svg>
             </div>
-            <span class="nav-link-text ms-1">Mecaniciens</span>
+            <span class="nav-link-text ms-1">Profil</span>
         </a>
       </li>
     </ul>
