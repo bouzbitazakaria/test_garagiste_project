@@ -94,7 +94,10 @@
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <label for="make" class="form-control-label">Make</label>
-                                                      <input class="form-control" type="text" id="marke" name="marke" value="{{ $vehicle->marke }}" required>
+                                                      <input class="form-control" type="text" id="marke" name="marke" value="{{ $vehicle->marke }}">
+                                                      @error('marke')
+                                                          <p>{{$message}}</p>
+                                                      @enderror
                                                   </div>
                                               </div>
                                               <div class="col-md-6">

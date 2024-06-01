@@ -19,6 +19,11 @@ class ReparationController extends Controller
         $vehicles = Vehicule::join('pictures', 'vehicles.id', '=', 'pictures.vehicleID')
             ->whereDoesntHave('reparations')
             ->get(["vehicles.*", "pictures.picture"]);
+            
+            // $vehicles = Vehicule::whereDoesntHave('reparations')
+            // ->select('vehicles.*', 'vehicles.picture')
+            // ->get();
+
         return view('reparations.create', compact('vehicles'));
     }
 

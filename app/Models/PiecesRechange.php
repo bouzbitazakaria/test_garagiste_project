@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PiecesRechange extends Model
 {
     use HasFactory;
+    public $table = 'sparePart';
+    
     protected $fillable = ['partName', 'partReference', 'supplier', 'price', 'stock'];
     public function factures()
 {

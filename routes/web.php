@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MecanicienController;
+use App\Http\Controllers\PiecesRechangeController;
 use App\Http\Controllers\ProfilContoller;
 use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\VehiculeController;
 use App\Models\Mecanicien;
+use App\Models\PiecesRechange;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +54,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::resource('mecaniciens',MecanicienController::class);
         Route::resource('reparations',ReparationController::class);
         Route::resource('profil',ProfilContoller::class);
+        Route::resource('spareParts',PiecesRechangeController::class);
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });
