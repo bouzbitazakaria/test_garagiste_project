@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificationMail;
+use App\Mail\RemoveMail;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class ClientController extends Controller
 {
@@ -47,6 +50,14 @@ class ClientController extends Controller
 
             $client = Client::create($clientData);
 
+            $mailData = [
+                'title' => 'Mail From Admin',   
+                'username' => $request->username,
+                'password' => $request->password
+            ];
+
+            Mail::to($request->email)->send(new NotificationMail($mailData));
+
             if ($client) {
                 return redirect()->route('clients.index');
             }
@@ -77,6 +88,17 @@ class ClientController extends Controller
 
     public function destroy(Client $client)
     {
+        $clientUserInfos = User::where('id',$client->userID)->first();
+
+        $mailData = [
+            'title' => 'Mail From Admin',   
+            'firstName' => $client->firstName,
+            'lastName' => $client->lastName,
+            'username' => $clientUserInfos->username
+        ];
+        
+
+        Mail::to($clientUserInfos->email)->send(new RemoveMail($mailData));
         
         $client->delete();
         User::where('id',$client->userID)->delete();

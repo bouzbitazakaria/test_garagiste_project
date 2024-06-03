@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificationMail;
+use App\Mail\RemoveMail;
 use App\Models\Mecanicien;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MecanicienController extends Controller
 {
@@ -51,6 +54,15 @@ class MecanicienController extends Controller
 
             $mecanicien = Mecanicien::create($mecanicienData);
 
+            $mailData = [
+                'title' => 'Mail From Admin',   
+                'username' => $request->username,
+                'password' => $request->password
+            ];
+
+            Mail::to($request->email)->send(new NotificationMail($mailData));
+
+
             if ($mecanicien) {
                 return redirect()->route('mecaniciens.index');
             }
@@ -82,7 +94,17 @@ class MecanicienController extends Controller
 
     public function destroy(Mecanicien $mecanicien)
     {
+        $mecanicienUserInfos = User::where('id',$mecanicien->userID)->first();
+
+        $mailData = [
+            'title' => 'Mail From Admin',   
+            'firstName' => $mecanicien->firstName,
+            'lastName' => $mecanicien->lastName,
+            'username' => $mecanicienUserInfos->username
+        ];
         
+
+        Mail::to($mecanicienUserInfos->email)->send(new RemoveMail($mailData));
         $mecanicien->delete();
         User::where('id',$mecanicien->userID)->delete();
 
