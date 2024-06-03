@@ -13,7 +13,12 @@ class VehiculeController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicule::join('pictures', 'vehicles.id', '=', 'pictures.vehicleID')
+        $user=auth()->user();
+
+        $client = Client::where('userID', $user->id)->first();
+
+        $vehicles = Vehicule::join('pictures', 'vehicles.id', '=', 'pictures.vehicleID')->where('clientID',$client->id)
+
             ->get(["vehicles.*", "pictures.picture"]);
         return view('vehicles.index', compact('vehicles'));
     }

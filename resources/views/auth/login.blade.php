@@ -40,7 +40,7 @@
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <small class="text-muted">Forgot you password? Reset you password 
-                  <a href="/login/forgot-password" class="text-info text-gradient font-weight-bold">here</a>
+                  <a href="{{ route('forget.password.get') }}">Reset Password</a>
                 </small>
                 </div>
               </div>
