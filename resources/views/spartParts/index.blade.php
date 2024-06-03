@@ -150,5 +150,13 @@
             </div>
         </div>
         <a href="{{ route('spareParts.create') }}" class="btn btn-primary float-end">Add New Spare Part</a>
+        <a class="btn btn-warning float-end" href="{{ route('spareParts.export') }}">Export Spare Part Data</a>
+        <form action="{{ route('spareParts.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file" class="form-control" required>
+            <br>
+            <button class="btn btn-success">Import Spare Parts </button>
+
+        </form>
     </div>
 @endsection

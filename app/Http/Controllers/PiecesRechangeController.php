@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PiecesRechargeExport;
+use App\Imports\PiecesRechargeImport;
 use App\Models\PiecesRechange;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PiecesRechangeController extends Controller
 {
@@ -69,9 +72,26 @@ class PiecesRechangeController extends Controller
         $sparePart = PiecesRechange::findOrFail($id);
 
         if($sparePart->delete()){
-            return redirect()->route('spartParts.index')->with('success', 'Spare part removed successfully');
+            return redirect()->route('spareParts.index')->with('success', 'Spare part removed successfully');
         } else {
             return redirect()->back()->withErrors(['error' => 'Error removing spare part']);
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new PiecesRechargeExport, 'spareParts.xlsx');
+    }
+    /**
+
+    * @return \Illuminate\Support\Collection
+
+    */
+    public function import() 
+    {
+        Excel::import(new PiecesRechargeImport,request()->file('file'));
+       
+        return back();
+
     }
 }

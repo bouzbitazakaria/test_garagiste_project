@@ -66,7 +66,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         //
         Route::resource('reparations',ReparationController::class);
         Route::resource('profil',ProfilContoller::class);
+        //
         Route::resource('spareParts',PiecesRechangeController::class);
+        Route::get('spareParts-export',[PiecesRechangeController::class, 'export'])->name('spareParts.export');
+        Route::post('spareParts-import',[PiecesRechangeController::class, 'import'])->name('spareParts.import');
+        //
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });
