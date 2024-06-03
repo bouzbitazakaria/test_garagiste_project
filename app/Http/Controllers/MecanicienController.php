@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MecanicienExport;
 use App\Mail\NotificationMail;
 use App\Mail\RemoveMail;
 use App\Models\Mecanicien;
@@ -9,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MecanicienController extends Controller
 {
@@ -109,5 +111,10 @@ class MecanicienController extends Controller
         User::where('id',$mecanicien->userID)->delete();
 
         return redirect()->back()->with('success', 'mecanicien deleted successfully!');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new MecanicienExport, 'Mecaniciens.xlsx');
     }
 }

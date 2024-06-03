@@ -55,8 +55,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::resource('clients', ClientController::class);
+        Route::get('clients-export',[ClientController::class, 'export'])->name('clients.export');
+        Route::post('clients-import',[ClientController::class, 'import'])->name('clients.import');
+        //
         Route::resource('vehicles' , VehiculeController::class);
+        //
         Route::resource('mecaniciens',MecanicienController::class);
+        Route::get('mecaniciens-export',[MecanicienController::class, 'export'])->name('mecaniciens.export');
+        Route::post('mecaniciens-import',[MecanicienController::class, 'import'])->name('mecaniciens.import');
+        //
         Route::resource('reparations',ReparationController::class);
         Route::resource('profil',ProfilContoller::class);
         Route::resource('spareParts',PiecesRechangeController::class);

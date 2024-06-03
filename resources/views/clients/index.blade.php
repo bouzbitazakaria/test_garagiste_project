@@ -204,5 +204,6 @@
             </div>
           </div>
           <a href="{{ route('clients.create') }}" class="block mt-4 text-blue-600 hover:underline">+ add new client</a>
+          <a class="btn btn-warning float-end" href="{{ route('clients.export') }}">Export Clients Data</a>
         </div>
 @endsection

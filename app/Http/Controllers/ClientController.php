@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ClientExport;
+use App\Imports\ClientImport;
 use App\Mail\NotificationMail;
 use App\Mail\RemoveMail;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientController extends Controller
 {
@@ -104,5 +107,22 @@ class ClientController extends Controller
         User::where('id',$client->userID)->delete();
 
         return redirect()->back()->with('success', 'Client deleted successfully!');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new ClientExport, 'clients.xlsx');
+    }
+    /**
+
+    * @return \Illuminate\Support\Collection
+
+    */
+    public function import() 
+    {
+        Excel::import(new ClientImport,request()->file('file'));
+       
+        return back();
+
     }
 }

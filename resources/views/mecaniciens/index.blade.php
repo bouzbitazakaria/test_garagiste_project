@@ -153,5 +153,6 @@
             </div>
         </div>
         <a href="{{ route('mecaniciens.create') }}" class="block mt-4 text-blue-600 hover:underline">+ Add new mecanicien</a>
+        <a class="btn btn-warning float-end" href="{{ route('mecaniciens.export') }}">Export Mecaniciens Data</a>
     </div>
 @endsection
