@@ -4,7 +4,7 @@
 
         @if (\Request::is('/'))  
             @include('clientHome.sidbare')
-            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg  min-h-screen overflow-y-auto">
                 @include('clientHome.navbar')
                 <div class="container-fluid py-2">
                     @yield('content')
@@ -13,7 +13,7 @@
 
         @elseif (\Request::is('vehicles'))  
         @include('clientHome.sidbare')
-            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg  min-h-screen overflow-y-auto">
                 @include('clientHome.navbar')
                 <div class="container-fluid py-4">
                     @yield('content')
@@ -22,7 +22,7 @@
 
         @elseif (\Request::is('vehicles/create')) 
         @include('clientHome.sidbare')
-            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg overflow-hidden">
+            <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg  min-h-screen overflow-y-auto">
                 @include('clientHome.navbar')
                 <div class="container-fluid py-4">
                     @yield('content')
@@ -31,9 +31,9 @@
 
             @elseif (\Request::is('profil')) 
             @include('clientHome.sidbare')
-            <main class="main-content position-relative max-height-vh-100 h-90 mt-1 border-radius-lg overflow-hidden">
+            <main class="main-content position-relative max-height-vh-100 h-90 mt-1 border-radius-lg min-h-screen overflow-y-auto">
                 @include('clientHome.navbar')
-                <div class="container-fluid py-0 overflow-auto"> 
+                <div class="container-fluid py-0 min-h-screen overflow-y-auto"> 
                     @yield('content')
                 </div>
             </main>

@@ -21,6 +21,18 @@
             <label for="firstName"  class="form-control-label">First Name</label>
             <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" value="{{ $client->firstName }}" required>
         </div>
+        <div class="mb-4">
+            <label for="firstName"  class="form-control-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" value="{{ $client->firstName }}" required>
+        </div>
+        <div class="mb-4">
+            <label for="firstName"  class="form-control-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" value="{{ $client->firstName }}" required>
+        </div>
+        <div class="mb-4">
+            <label for="firstName"  class="form-control-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" value="{{ $client->firstName }}" required>
+        </div>
 
         <div class="mb-4">
             <label for="lastName" class="form-control-label">Last Name</label>

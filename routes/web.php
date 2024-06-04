@@ -65,6 +65,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::resource('mecaniciens',MecanicienController::class);
         Route::get('mecaniciens-export',[MecanicienController::class, 'export'])->name('mecaniciens.export');
         Route::post('mecaniciens-import',[MecanicienController::class, 'import'])->name('mecaniciens.import');
+        Route::get('/api/mecaniciens/search', [MecanicienController::class, 'search'])->name('mecaniciens.search');
         //
         Route::resource('reparations',ReparationController::class);
         Route::resource('profil',ProfilContoller::class);

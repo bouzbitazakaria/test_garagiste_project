@@ -16,7 +16,7 @@ class Mecanicien extends Model
         'address',
         'phoneNumber',
         'salary',
-        'rectuted_at',
+        'recruited_at',
         'userID'
     ];
     public function reparations()

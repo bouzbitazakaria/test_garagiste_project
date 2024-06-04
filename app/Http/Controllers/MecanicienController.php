@@ -114,15 +114,21 @@ class MecanicienController extends Controller
         return redirect()->back()->with('success', 'mecanicien deleted successfully!');
     }
 
-    public function search(): View
+    public function search(Request $request)
     {
-
-        $mecaniciens = Mecanicien::where('firstName', 'like', '%' . request('search') . '%')
-        ->orWhere('lastName', 'like', '%' . request('search') . '%')
-        ->get();
-
-        return view('mecaniciens.search',compact('mecaniciens'));
+        $query = $request->input('query');
+    
+        if ($query) {
+            $mecaniciens = Mecanicien::where('firstName', 'like', '%' . $query . '%')
+                ->orWhere('lastName', 'like', '%' . $query . '%')
+                ->get();
+        } else {
+            $mecaniciens = Mecanicien::all();
+        }
+    
+        return response()->json($mecaniciens);
     }
+
 
     public function export() 
     {
