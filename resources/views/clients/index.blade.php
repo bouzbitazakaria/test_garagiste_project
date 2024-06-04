@@ -56,6 +56,7 @@
                 <div class="card-footer">
                     @if ($clients->isEmpty())
                         <h6 class="text-center text-muted">No clients available</h6>
+                        <a href="{{ route('clients.create') }}" class="btn btn-success">+ Add New Client</a>
                     @else
                         <div class="d-flex justify-content-between">
                             <a href="{{ route('clients.create') }}" class="btn btn-success">+ Add New Client</a>

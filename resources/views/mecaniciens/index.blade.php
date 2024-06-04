@@ -58,6 +58,7 @@
             <div class="card-footer">
                 @if ($mecaniciens->isEmpty())
                     <h6 class="text-center text-muted">No mechanic available</h6>
+                    <a href="{{ route('mecaniciens.create') }}" class="btn btn-success">+ Add New Mechanic</a>
                 @else
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('mecaniciens.create') }}" class="btn btn-success">+ Add New Mechanic</a>
