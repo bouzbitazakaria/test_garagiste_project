@@ -38,7 +38,7 @@ class PiecesRechangeController extends Controller
         $spartPart = PiecesRechange::create($spartData);
 
         if($spartPart){
-            return view('spartParts.index')->with(['succes' => 'spartPart added succesfully']);
+            return redirect()->back()->with(['succes' => 'spartPart added succesfully']);
         }else{
             redirect()->back()->withErrors(['error' => 'error creating spartPart']);
         }
@@ -70,10 +70,12 @@ class PiecesRechangeController extends Controller
     }
 
     public function destroy($id){
+
+
         $sparePart = PiecesRechange::findOrFail($id);
 
         if($sparePart->delete()){
-            return redirect()->route('spareParts.index')->with('success', 'Spare part removed successfully');
+            return redirect()->back()->with('success', 'Spare part removed successfully');
         } else {
             return redirect()->back()->withErrors(['error' => 'Error removing spare part']);
         }

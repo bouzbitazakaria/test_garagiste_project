@@ -15,9 +15,11 @@ class PiecesRechange extends Model
 {
     return $this->hasMany(Facture::class);
 }
-public function reparations()
+public function repairs()
 {
-    return $this->belongsToMany(Reparation::class)->withPivot('quantity');
+    return $this->belongsToMany(Reparation::class, 'repair_spare_part','spare_part_id')
+                ->withPivot('quantity')
+                ->withTimestamps();
 }
 
 }

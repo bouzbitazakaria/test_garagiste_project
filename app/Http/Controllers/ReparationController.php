@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PiecesRechange;
 use App\Models\Reparation;
 use App\Models\Vehicule;
 use Illuminate\Http\Request;
@@ -10,8 +11,9 @@ class ReparationController extends Controller
 {
     public function index()
     {
-        $reparations = Reparation::all();
-        return view('reparations.index', compact('reparations'));
+        $reparations = Reparation::with('spareParts')->get();
+        $spareParts = PiecesRechange::all();
+        return view('reparations.index', compact('reparations', 'spareParts'));
     }
 
     public function create()

@@ -5,6 +5,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MecanicienController;
 use App\Http\Controllers\PiecesRechangeController;
 use App\Http\Controllers\ProfilContoller;
+use App\Http\Controllers\repairSparePartController;
 use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\VehiculeController;
 use App\Models\Mecanicien;
@@ -73,6 +74,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::resource('spareParts',PiecesRechangeController::class);
         Route::get('spareParts-export',[PiecesRechangeController::class, 'export'])->name('spareParts.export');
         Route::post('spareParts-import',[PiecesRechangeController::class, 'import'])->name('spareParts.import');
+        Route::resource('/repairSparePart', repairSparePartController::class);
         //
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
