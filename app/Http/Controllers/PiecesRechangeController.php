@@ -63,7 +63,7 @@ class PiecesRechangeController extends Controller
         $spartData = $request->only(['partName', 'partReference', 'supplier', 'price', 'stock']);
 
         if($sparePart->update($spartData)){
-            return redirect()->route('spartParts.index')->with('success', 'Spare part updated successfully');
+            return redirect()->route('spareParts.index')->with('success', 'Spare part updated successfully');
         } else {
             return redirect()->back()->withErrors(['error' => 'Error updating spare part']);
         }
@@ -75,7 +75,7 @@ class PiecesRechangeController extends Controller
         $sparePart = PiecesRechange::findOrFail($id);
 
         if($sparePart->delete()){
-            return redirect()->back()->with('success', 'Spare part removed successfully');
+            return redirect()->route('spareParts.index')->with('success', 'Spare part removed successfully');
         } else {
             return redirect()->back()->withErrors(['error' => 'Error removing spare part']);
         }

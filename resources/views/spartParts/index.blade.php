@@ -39,24 +39,24 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-2 mb-2 border p-3 border-radius-xl">
-                <div class="d-flex flex-column align-items-start mt-4">
+            <div class="col-md-2 mb-2 ">
+                <div class="d-flex flex-column align-items-start mt-4 border-start border-info p-2 rounded-xl ">
                     <div class="mb-3">
                         <a href="{{ route('spareParts.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus-circle"></i> Add New Spare Part
                         </a>
                     </div>
                     <div class="mb-3">
-                        <a class="btn btn-warning" href="{{ route('spareParts.export') }}">
-                            <i class="fas fa-file-export"></i> Export Spare Part Data
+                        <a class=" btn btn-warning " href="{{ route('spareParts.export') }}">
+                            <i class="fas fa-file-export"></i> Export to Excel
                         </a>
                     </div>
                     <div class="mb-3">
-                        <form action="{{ route('spareParts.import') }}" method="POST" enctype="multipart/form-data" class="d-inline-block w-100" id="importForm">
+                        <form action="{{ route('spareParts.import') }}" method="POST" enctype="multipart/form-data" class="d-inline-block w-90" id="importForm">
                             @csrf
                             <div class="input-group mb-3">
-                                <label class="input-group-text bg-primary text-white" for="fileUpload" style="cursor: pointer;">
-                                    <i class="fas fa-file-upload p-1"></i>import spare parts
+                                <label class=" btn btn-success " for="fileUpload" style="cursor: pointer;">
+                                    <i class="fas fa-file-upload p-1"></i>import from Excel
                                 </label>
                                 <input type="file" name="file" id="fileUpload" class="form-control d-none" required onchange="submitForm()">
                             </div>
@@ -72,16 +72,6 @@
         }
     </script>
     <style>
-      .input-group-text {
-        cursor: pointer;
-    }
-    .form-control.bg-light {
-        border-left: none;
-        cursor: default;
-    }
-    .border {
-        border: 1px solid #ccc;
-    }
     #fileUpload {
         display: none;
     }
