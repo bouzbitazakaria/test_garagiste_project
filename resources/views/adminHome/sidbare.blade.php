@@ -1,6 +1,5 @@
 
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-3 border p-3 rounded-lg border-radius-xl my-3 fixed-start ms-3  " id="sidenav-main" style="overflow-y: hidden;">
-  <hr class="horizontal dark mt-0">
   <div class=" navbar- w-auto" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -48,7 +47,7 @@
       </li>
       <hr class="horizontal dark mt-0">
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('spartParts') || Request::is('spartParts/create') ? 'active' : '') }} " href="{{route('spareParts.index')}}">
+        <a class="nav-link {{ (Request::is('spareParts') || Request::is('spareParts/create') ? 'active' : '') }} " href="{{route('spareParts.index')}}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
             </div>
