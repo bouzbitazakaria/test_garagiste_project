@@ -40,8 +40,8 @@
                                 <td class="text-center text-sm font-weight-normal">{{ $mecanicien->salary }} DH</td>
                                 <td class="text-center text-sm font-weight-normal">{{ $mecanicien->recruited_at }}</td>
                                 <td class="text-end">
-                                    <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#editModal-{{ $mecanicien->id }}">Edit</button>
-                                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $mecanicien->id }}">Remove</button>
+                                    <button type="button" class="btn btn-outline-info btn-sm  p-1" data-bs-toggle="modal" data-bs-target="#editModal-{{ $mecanicien->id }}">Edit</button>
+                                    <button type="button" class="btn btn-outline-danger btn-sm  p-1" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $mecanicien->id }}">Remove</button>
                                 </td>
                             </tr>
 

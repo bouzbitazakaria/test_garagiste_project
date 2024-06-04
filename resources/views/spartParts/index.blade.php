@@ -19,10 +19,10 @@
                                         <p class="card-text"><strong>Price:</strong> {{ $sparePart->price }} DH</p>
                                         <p class="card-text"><strong>Stock:</strong> {{ $sparePart->stock }}</p>
                                         <div class="d-flex justify-content-between">
-                                            <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#editModal-{{ $sparePart->id }}">
+                                            <button type="button" class="btn btn-outline-info btn-sm  p-1" data-bs-toggle="modal" data-bs-target="#editModal-{{ $sparePart->id }}">
                                                  Edit
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $sparePart->id }}">
+                                            <button type="button" class="btn btn-outline-danger btn-sm  p-1" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $sparePart->id }}">
                                                  Remove
                                             </button>
                                         </div>

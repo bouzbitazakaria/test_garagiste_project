@@ -99,7 +99,7 @@
                     </div>
                 @endforeach
             @else
-                <h3 class="py-3 text-center">No vehicles te repair</h3>
+                <h3 class="py-3 text-center">No vehicles to repair</h3>
             @endif
         </div>
     @endsection

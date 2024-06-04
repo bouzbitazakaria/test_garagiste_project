@@ -2,45 +2,54 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="detailModalLabel-{{ $reparation->id }}">Repair Details: {{ $reparation->description }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="detailModal-{{ $reparation->id }}"> Spare Part for this repair</h5>
+                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
             </div>
             <div class="modal-body">
-                <h6>Spare Parts</h6>
                 <div class="row">
-                    @foreach ($reparation->spareParts as $sparePart)
-                        <div class="col-md-3">
-                            <div class="card mb-3">
+                    <div class="col-md-9">
+                        <h6>Total Price: ${{ $reparation->spareParts->sum(function($sparePart) { return $sparePart->price * $sparePart->pivot->quantity; }) }}</h6>
+                        <div class="row">
+                            @foreach ($reparation->spareParts as $sparePart)
+                            <div class="col-md-4">
+                                <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $sparePart->partName }}</h5>
                                     <p class="card-text">Quantity: {{ $sparePart->pivot->quantity }}</p>
                                     <p class="card-text">Price: ${{ $sparePart->price }}</p>
                                     <p class="card-text">Total: ${{ $sparePart->price * $sparePart->pivot->quantity }}</p>
                                 </div>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-                <h6>Total Price: ${{ $reparation->spareParts->sum(function($sparePart) { return $sparePart->price * $sparePart->pivot->quantity; }) }}</h6>
-  
-                <h6>Add Spare Part</h6>
-                <form action="{{ route('repairSparePart.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="repair_id" value="{{ $reparation->id }}">
-                    <div class="mb-3">
-                        <label for="spare_part_id" class="form-label">Spare Part</label>
-                        <select name="spare_part_id" class="form-control">
-                            @foreach($spareParts as $sparePart)
-                                <option value="{{ $sparePart->id }}">{{ $sparePart->partName }}</option>
                             @endforeach
-                        </select>
+                            
+                           </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="quantity" class="form-label">Quantity</label>
-                        <input type="number" name="quantity" class="form-control" required>
+                    <div class="col-md-3">
+                       
+                        <form action="{{ route('repairSparePart.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="repair_id" value="{{ $reparation->id }}">
+                            <div class="mb-3">
+                                <label for="spare_part_id" class="form-label">Spare Part</label>
+                                <select name="spare_part_id" class="form-control">
+                                    @foreach($spareParts as $sparePart)
+                                        <option value="{{ $sparePart->id }}">{{ $sparePart->partName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" name="quantity" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Spare Part</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Spare Part</button>
-                </form>
+                </div>
+                    
+                
             </div>
         </div>
     </div>
