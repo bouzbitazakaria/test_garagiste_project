@@ -57,6 +57,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::resource('clients', ClientController::class);
         Route::get('clients-export',[ClientController::class, 'export'])->name('clients.export');
         Route::post('clients-import',[ClientController::class, 'import'])->name('clients.import');
+        Route::get('/api/clients/search', [ClientController::class, 'search'])->name('clients.search');
+
         //
         Route::resource('vehicles' , VehiculeController::class);
         //

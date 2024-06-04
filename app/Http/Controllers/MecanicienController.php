@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MecanicienController extends Controller
@@ -111,6 +112,16 @@ class MecanicienController extends Controller
         User::where('id',$mecanicien->userID)->delete();
 
         return redirect()->back()->with('success', 'mecanicien deleted successfully!');
+    }
+
+    public function search(): View
+    {
+
+        $mecaniciens = Mecanicien::where('firstName', 'like', '%' . request('search') . '%')
+        ->orWhere('lastName', 'like', '%' . request('search') . '%')
+        ->get();
+
+        return view('mecaniciens.search',compact('mecaniciens'));
     }
 
     public function export() 

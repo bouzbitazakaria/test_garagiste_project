@@ -8,6 +8,7 @@ use App\Models\Vehicule;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class VehiculeController extends Controller
 {
@@ -98,5 +99,15 @@ class VehiculeController extends Controller
         picture::where('vehicleID', $vehicle->id)->delete();
         $vehicle->delete();
         return redirect()->back()->with('success', 'vehicle deleted successfully!');
+    }
+
+    public function search(): View
+    {
+
+        $vehicles = Vehicule::where('marke', 'like', '%' . request('search') . '%')
+        ->orWhere('model', 'like', '%' . request('search') . '%')
+        ->get();
+
+        return view('vehicles.search',compact('vehicles'));
     }
 }

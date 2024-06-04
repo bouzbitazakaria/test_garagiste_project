@@ -9,6 +9,7 @@ use App\Mail\RemoveMail;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -109,15 +110,26 @@ class ClientController extends Controller
         return redirect()->back()->with('success', 'Client deleted successfully!');
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+    
+        if ($query) {
+            $clients = Client::where('firstName', 'like', '%' . $query . '%')
+                ->orWhere('lastName', 'like', '%' . $query . '%')
+                ->get();
+        } else {
+            $clients = Client::all();
+        }
+    
+        return response()->json($clients);
+    }
+
     public function export() 
     {
         return Excel::download(new ClientExport, 'clients.xlsx');
     }
-    /**
-
-    * @return \Illuminate\Support\Collection
-
-    */
+    
     public function import() 
     {
         Excel::import(new ClientImport,request()->file('file'));

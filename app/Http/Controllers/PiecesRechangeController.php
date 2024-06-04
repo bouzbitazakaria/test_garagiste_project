@@ -6,6 +6,7 @@ use App\Exports\PiecesRechargeExport;
 use App\Imports\PiecesRechargeImport;
 use App\Models\PiecesRechange;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PiecesRechangeController extends Controller
@@ -77,6 +78,17 @@ class PiecesRechangeController extends Controller
             return redirect()->back()->withErrors(['error' => 'Error removing spare part']);
         }
     }
+
+    public function search(): View
+    {
+
+        $spareParts = PiecesRechange::where('partName', 'like', '%' . request('search') . '%')
+        ->orWhere('partReference', 'like', '%' . request('search') . '%')
+        ->get();
+
+        return view('spartParts.search',compact('spareParts'));
+    }
+
 
     public function export() 
     {
