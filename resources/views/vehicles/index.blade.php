@@ -24,15 +24,15 @@
                                     Registration: {{ $vehicle->registration }}
                                 </p>
                                 <div class="d-flex justify-content-between">
-                                  <button type="button" class="btn btn-outline-info btn-sm m-0  p-1" data-bs-toggle="modal" data-bs-target="#editModal-{{ $vehicle->id }}">Edit</button>
-                                  <button type="button" class="btn btn-outline-danger btn-sm m-0  p-1" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $vehicle->id }}">Remove</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm m-0  p-1">Details</button>
+                                  <button type="button" class="btn btn-outline-info btn-sm m-0" data-bs-toggle="modal" data-bs-target="#editModal-{{ $vehicle->id }}">Edit</button>
+                                  <button type="button" class="btn btn-outline-danger btn-sm m-0" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $vehicle->id }}">Remove</button>
+                                  
                               </div>
                             </div>
                         </div>
                     </div>
                     @include('vehicles.modals.edit',['vehicle'=>$vehicle])
-                    @include('vehicles.modals.remoce',['vehicle'=>$vehicle])
+                    @include('vehicles.modals.remove',['vehicle'=>$vehicle])
                 @endforeach
             @else
                 <h3 class="py-3 text-center">No vehicles</h3>

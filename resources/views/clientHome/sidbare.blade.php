@@ -1,6 +1,6 @@
 
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-3 border p-3 rounded-lg border-radius-xl my-3 fixed-start ms-3  " id="sidenav-main" style="overflow-y: hidden;">
-  <hr class="horizontal dark mt-0">
+
   <div class=" navbar- w-auto" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -24,6 +24,7 @@
             <span class="nav-link-text ms-1">Vehicles</span>
         </a>
       </li>
+      <hr class="horizontal dark mt-0">
       <li class="nav-item">
         <a class="nav-link {{ (Request::is('profil') ? 'active' : '') }} " href="{{route('profil.index')}}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -45,6 +46,7 @@
             <span class="nav-link-text ms-1">Profil</span>
         </a>
       </li>
+      <hr class="horizontal dark mt-0">
     </ul>
   </div>
 </aside>
