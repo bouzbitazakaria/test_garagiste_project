@@ -36,9 +36,9 @@
                                     <td class="text-center text-sm font-weight-normal">{{ $client->address }}</td>
                                     <td class="text-center text-sm font-weight-normal">{{ $client->phoneNumber }}</td>
                                     <td class="text-end">
-                                        <button type="button" class="btn btn-outline-info btn-sm  p-1"  data-bs-toggle="modal" data-bs-target="#editModal-{{ $client->id }}">Edit</button>
-                                        <button type="button" class="btn btn-outline-danger btn-sm  p-1" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $client->id }}">Remove</button>
-                                        <button type="button" class="btn btn-outline-dark btn-sm  p-1" data-bs-toggle="modal" data-bs-target="#vehiclesModal-{{ $client->id }}">Vehicles</button>
+                                        <button type="button" class="btn btn-outline-info btn-sm  p-2"  data-bs-toggle="modal" data-bs-target="#editModal-{{ $client->id }}">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $client->id }}">Remove</button>
+                                        <button type="button" class="btn btn-outline-dark btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#vehiclesModal-{{ $client->id }}">Vehicles</button>
                                     </td>
                                 </tr>
 

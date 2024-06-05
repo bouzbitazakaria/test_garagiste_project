@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-3 border p-3 rounded-lg border-radius-xl fixed" id="navbarBlur" navbar-scroll="true">
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 border-3 border p-3 rounded-lg border-radius-xl fixed" id="navbarBlur" navbar-scroll="true">
   <div class="container-fluid py-1 px-3">
       <nav aria-label="breadcrumb">
         @if(Request::path()!='/')

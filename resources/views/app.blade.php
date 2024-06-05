@@ -42,7 +42,7 @@
 </body>
 <style>
   .app{
-      background-image: url('https://via.placeholder.com/350x150');
+      background-image: url('storage/avatars/pexels-hyundaimotorgroup-20428028.jpg');
       background-size: cover;
       background-position: center;
   }
