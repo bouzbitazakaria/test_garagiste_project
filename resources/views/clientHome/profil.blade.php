@@ -1,7 +1,7 @@
 @extends('clientHome.index')
 
 @section('content')
-<div class="max-w-md mx-auto m-0  p-6 rounded shadow">
+<div class="max-w-md m-1  p-3 rounded shadow border rounded-xl" style="background-color:aliceblue">
     <div class="d-flex align-items-center mb-2"> 
         <a href="{{route('vehicles.index')}}" class="me-2">
             <div class="icon icon-shape icon-md shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center p-2 m-2">

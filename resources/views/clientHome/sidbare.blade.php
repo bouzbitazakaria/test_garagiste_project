@@ -1,10 +1,9 @@
 
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-3 border p-3 rounded-lg border-radius-xl my-3 fixed-start ms-3  " id="sidenav-main" style="overflow-y: hidden;">
-
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-3 border p-3 rounded-lg border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main" style="overflow-y: hidden;background-color:aliceblue">
   <div class=" navbar- w-auto" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('vehicles') || Request::is('clients/create') || Request::is('/') ? 'active' : '') }} " href="{{route('vehicles.index')}}">
+        <a class="nav-link {{ (Request::is('vehicles') || Request::is('vehicles/create') || Request::is('/') ? 'active' : '') }} " href="{{route('vehicles.index')}}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>customer-support</title>

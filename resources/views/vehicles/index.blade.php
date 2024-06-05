@@ -1,17 +1,17 @@
 @extends('clientHome.index')
 
 @section('content')
+    <div class="col-12  m-1 p-3 rounded shadow border rounded-xl" style="background-color:aliceblue">
+    <a href="{{ route('vehicles.create') }}" class="btn btn-success mt-3">+ Add new vehicle</a>
     @if(session('success'))
         <div class="text-success-500">{{ session('success') }}</div>
     @endif
-    <a href="{{ route('vehicles.create') }}" class="block mt-4 text-blue-600 hover:underline">+ Add new vehicle</a>
-    <div class="col-12 mt-5">
         <div class="row">
             @if (!$vehicles->isEmpty())
                 @foreach ($vehicles as $vehicle)
                     <div class="col-md-4">
                         <div class="card">
-                            <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                            <div class="card-header p-0 mx-3 mt-2 position-relative z-index-1">
                                   <img class="img-fluid border-radius-lg" src="{{"storage/avatars/".$vehicle->picture}}" alt="">
                             </div>
                             <div class="card-body pt-2">
@@ -39,5 +39,5 @@
             @endif
         </div>
         
-    </div>
+    </>
 @endsection

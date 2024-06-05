@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
-<body class="g-sidenav-show bg-gray-100">
+<body class="app g-sidenav-show bg-gray-100">
   
     @yield('app_content')
  
@@ -40,5 +40,12 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js"></script>
 </body>
+<style>
+  .app{
+      background-image: url('https://via.placeholder.com/350x150');
+      background-size: cover;
+      background-position: center;
+  }
+</style>
 
 </html>
