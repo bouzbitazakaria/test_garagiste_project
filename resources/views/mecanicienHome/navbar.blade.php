@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 border-3 border p-3 rounded-lg border-radius-xl fixed" id="navbarBlur" navbar-scroll="true">
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 border-3 border p-3 rounded-lg border-radius-xl fixed" style="background-color:aliceblue" id="navbarBlur" navbar-scroll="true">
   <div class="container-fluid py-1 px-3">
       <nav aria-label="breadcrumb">
         @if(Request::path()!='/')
@@ -8,6 +8,8 @@
         <li class="breadcrumb-item text-sm text-dark active text-capitalize" aria-current="page">{{ str_replace('/', ' : ', Request::path()) }}</li>
         </ol>
         <h6 class="font-weight-bolder mb-0 text-capitalize">{{str_replace('/', ' : ', Request::path()) }}</h6>
+        @else
+            <h6 class="font-weight-bolder mb-0 text-capitalize">Welcome {{auth()->user()->username}}</h6>
         @endif
       </nav>
       <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar"> 
