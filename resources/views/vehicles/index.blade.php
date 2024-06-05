@@ -1,8 +1,8 @@
 @extends('clientHome.index')
 
 @section('content')
-    <div class="col-12  m-1 p-3 rounded shadow border rounded-xl" style="background-color:aliceblue">
-    <a href="{{ route('vehicles.create') }}" class="btn btn-success mt-3">+ Add new vehicle</a>
+<div class="col-12  m-1 p-3 " >
+    <a href="{{ route('vehicles.create') }}" class="btn btn-success">+ Add new vehicle</a>
     @if(session('success'))
         <div class="text-success-500">{{ session('success') }}</div>
     @endif

@@ -8,7 +8,7 @@
               </button>
           </div>
           <div class="modal-body">
-              <form action="{{ route('vehicles.update', $vehicle->id) }}" method="POST" class="max-w-md mx-auto  rounded shadow">
+              <form action="{{ route('vehicles.update', $vehicle->id) }}" method="POST" class="max-w-md mx-auto">
                   @csrf
                   @method('PUT')
                   <div class="row">
