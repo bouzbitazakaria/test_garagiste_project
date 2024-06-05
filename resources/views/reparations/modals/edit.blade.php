@@ -19,11 +19,15 @@
                           </div>
                       </div>
                       <div class="col-md-6">
-                          <div class="form-group">
-                              <label for="status" class="form-control-label">Status</label>
-                              <input class="form-control" type="text" id="status" name="status" value="{{ $reparation->status }}" required>
-                          </div>
-                      </div>
+                        <div class="form-group">
+                            <label for="status" class="form-control-label">Status</label>
+                            <select class="form-control" id="status" name="status" required>
+                                <option value="pending" {{ $reparation->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                                <option value="in progress" {{ $reparation->status == 'in progress' ? 'selected' : '' }}>In Progress</option>
+                                <option value="finished" {{ $reparation->status == 'finished' ? 'selected' : '' }}>Finished</option>
+                            </select>
+                        </div>
+                    </div>
                       <div class="col-md-6">
                           <div class="form-group">
                               <label for="startDate" class="form-control-label">Start Date</label>

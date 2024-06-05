@@ -25,10 +25,16 @@ class Reparation extends Model
         return $this->belongsTo(Vehicule::class, 'vehicleID');
     }
 
-public function mecanicien()
-{
-    return $this->belongsTo(Mecanicien::class,'mechanicID');
-}
+    public function client()
+    {
+        return $this->vehicle->client(); 
+    }
+
+    public function mecanicien()
+    {
+        return $this->belongsTo(Mecanicien::class,'mechanicID');
+    }
+
     public function spareParts()
         {
             return $this->belongsToMany(PiecesRechange::class, 'repair_spare_part','repair_id','spare_part_id')

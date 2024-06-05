@@ -8,6 +8,7 @@ use App\Mail\NotificationMail;
 use App\Mail\RemoveMail;
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\Reparation;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
@@ -124,6 +125,46 @@ class ClientController extends Controller
     
         return response()->json($clients);
     }
+
+    public function clientRepairs(){
+
+        $userID=auth()->user()->id;
+        $client=Client::where('userID',$userID)->first();
+
+         $repairs = Reparation::whereHas('vehicle', function ($query) use ($client) {
+            $query->where('clientID', $client->id);
+        })->with('vehicle.client')->get();
+
+        $vehiclesInRepair = $repairs->map(function($repair) {
+            return [
+                'id' => $repair->id,
+                'marke' => $repair->vehicle->marke,
+                'model' => $repair->vehicle->model,
+                'status' => $repair->status,
+                'startDate' => $repair->startDate,
+                'endDate' => $repair->endDate,
+                'mechanicNotes' => $repair->mechanicNotes,
+                'clientNotes' => $repair->clientNotes,
+
+            ];
+        });
+
+        return view('clients.clientRepairs', compact('vehiclesInRepair'));
+    } 
+
+    public function updateClientComment(Request $request)
+{
+    $request->validate([
+        'repair_id' => 'required|exists:repairs,id',
+        'clientNotes' => 'required|string',
+    ]);
+
+    $repair = Reparation::find($request->repair_id);
+    $repair->clientNotes = $request->clientNotes;
+    $repair->save();
+
+    return redirect()->back()->with('success', 'Your notes updated successfully.');
+}
 
     public function export() 
     {

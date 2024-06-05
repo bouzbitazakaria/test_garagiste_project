@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\picture;
+use App\Models\Reparation;
 use App\Models\Vehicule;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -109,5 +110,25 @@ class VehiculeController extends Controller
         ->get();
 
         return view('vehicles.search',compact('vehicles'));
+    }
+
+    public function getVehiclesInRepair()
+    {
+        
+        $repairs = Reparation::all()->with('vehicle.client')->get();
+
+        $vehiclesInRepair = $repairs->map(function($repair) {
+            return [
+                'repair_id' => $repair->id,
+                'vehicle_id' => $repair->vehicle->id,
+                'vehicle_marke' => $repair->vehicle->marke,
+                'vehicle_model' => $repair->vehicle->model,
+                'client_id' => $repair->vehicle->client->id,
+                'client_firstName' => $repair->vehicle->client->firstName,
+                'client_lastName' => $repair->vehicle->client->lastName,
+            ];
+        });
+
+        return view('adminHome.VehiclesInRepair',compact('vehiclesInRepair'));
     }
 }

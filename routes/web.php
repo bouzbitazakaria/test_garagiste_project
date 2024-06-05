@@ -56,6 +56,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::resource('clients', ClientController::class);
+        Route::get('clientRepairs',[ClientController::class, 'clientRepairs'])->name('clients.clientRepairs');
+        Route::post('clientRepairs',[ClientController::class, 'updateClientComment'])->name('clients.updateClientComment');
         Route::get('clients-export',[ClientController::class, 'export'])->name('clients.export');
         Route::post('clients-import',[ClientController::class, 'import'])->name('clients.import');
         Route::get('/api/clients/search', [ClientController::class, 'search'])->name('clients.search');

@@ -1,7 +1,7 @@
 @extends('mecanicienHome.index')
 
 @section('content')
-<div class=" p-3 rounded-xl shadow border-radius-xl" >
+<div class=" p-3 rounded-xl border-radius-xl" >
     <a href="{{ route('reparations.index') }}">
         <div class="icon icon-shape icon-md shadow border-radius-md text-center d-flex align-items-center justify-content-center p-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -56,8 +56,12 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="status" class="form-control-label">Status</label>
-                                                    <input class="form-control" type="text" id="status" name="status" required>
+                                                    <label for="status" class="form-control-label" >Status</label>
+                                                    <select class="form-control" id="status" name="status" disabled>
+                                                        <option value="pending" selected>Pending</option>
+                                                        <option value="in progress">In Progress</option>
+                                                        <option value="finished">Finished</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -100,7 +104,7 @@
                         </div>
                     @endforeach
                 @else
-                    <h3 class="py-3 text-center">No vehicles to repair</h3>
+                    <h3 class="py-3 text-center text-white">No vehicles to repair</h3>
                 @endif
             </div>
 
