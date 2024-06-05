@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
-<body class="app g-sidenav-show bg-gray-100">
+<body class="app g-sidenav-show fixed-start">
   
     @yield('app_content')
  
@@ -42,9 +42,12 @@
 </body>
 <style>
   .app{
-      background-image: url('storage/avatars/pexels-hyundaimotorgroup-20428028.jpg');
+    background-color: gray;
+      background-image: url('{{asset('storage/avatars/backgroundApp.jpg')}}');
       background-size: cover;
       background-position: center;
+      min-height: 90vh; /* Ensure it covers full height */
+      width: 100%; /* Ensure it covers full width */
   }
 </style>
 

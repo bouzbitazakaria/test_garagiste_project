@@ -1,8 +1,7 @@
 @extends('adminHome.index')
 
 @section('content')
-
-<div class=" m-1 p-3 rounded shadow" style="background-color: aliceblue">
+<div class="m-1 p-3 rounded-xl shadow bg-white border-radius-xl" >
     <a href="{{route('clients.index')}}">
         <div class="icon icon-shape icon-md text-center me-2 d-flex align-items-center justify-content-center p-2 m-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -10,7 +9,7 @@
             </svg>
         </div>
     </a>
-    <form action="{{ route('clients.store') }}" method="POST" class="max-w-md m-1 p-3 ">
+    <form action="{{ route('clients.store') }}" method="POST" class="max-w-md mx-2 p-4 ">
         @csrf
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -80,5 +79,12 @@
         </div>
     </form>
 </div>
+<style>
+    .app{
+        background-image: url('storage/avatars/pexels-hyundaimotorgroup-20428028.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+  </style>
 
 @endsection

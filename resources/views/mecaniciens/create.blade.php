@@ -1,7 +1,7 @@
 @extends('adminHome.index')
 
 @section('content')
-<div class=" m-1 p-3 rounded shadow" style="background-color: aliceblue">
+<div class=" m-1 p-3  border-radius-xl shadow bg-white">
     <a href="{{ route('mecaniciens.index') }}">
         <div class="icon icon-shape icon-md text-center me-2 d-flex align-items-center justify-content-center p-2 m-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

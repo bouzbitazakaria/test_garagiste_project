@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-md-2 mb-2 ">
-                <div class="d-flex flex-column align-items-start mt-4 border-start border-info p-2 rounded-xl ">
+                <div class="d-flex flex-column align-items-start mt-4 p-2 rounded-xl ">
                     <div class="mb-3">
                         <a href="{{ route('spareParts.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus-circle"></i> Add New Spare Part
