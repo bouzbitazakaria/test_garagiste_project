@@ -2,10 +2,10 @@
 
 @section('content')
     @if(session('success'))
-        <div class="text-success-500">{{ session('success') }}</div>
+        <div class="alert alert-success">{{ session('success') }}</div>
     @endif
     <div class="col-12 mt-5">
-        <h2 class="mb-4">Repair List : {{ $reparations->count() }}</h2>
+        <a href="{{ route('reparations.create') }}" class="btn btn-success">+ Add new repair</a>
         <div class="card mb-4">
             <div class="card-body px-0 pt-0 pb-2">
                 @if (!$reparations->isEmpty())
@@ -34,13 +34,13 @@
                                         @php
                                             $statusClass = 'info'; 
                                             switch ($reparation->status) {
-                                                case 'en attend':
+                                                case 'panding':
                                                     $statusClass = 'danger';
                                                     break;
-                                                case 'en cours':
+                                                case 'in progress':
                                                     $statusClass = 'info';
                                                     break;
-                                                case 'termine':
+                                                case 'finished':
                                                     $statusClass = 'uccess';
                                                     break;
                                             }
@@ -71,6 +71,6 @@
                 @endif
             </div>
         </div>
-        <a href="{{ route('reparations.create') }}" class="block mt-4 text-blue-600 hover:underline">+ Add new repair</a>
+        
     </div>
 @endsection
