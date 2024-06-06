@@ -42,7 +42,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="quantity" class="form-label">Quantity</label>
-                                <input type="number" name="quantity" class="form-control" required>
+                                <input type="number" name="quantity" value="1" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Add Spare Part</button>
                         </form>

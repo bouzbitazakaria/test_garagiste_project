@@ -6,7 +6,7 @@
         <div class="alert alert-success" role="alert">{{ session('success') }}</div>
     @endif
     <a href="{{ route('vehicles.create') }}" class="btn btn-success">+ Add new vehicle</a>
-        <div class="row">
+        <div  class="row overflow-auto" style="max-height: 600px;">
             @if (!$vehicles->isEmpty())
                 @foreach ($vehicles as $vehicle)
                     <div class="col-md-3">

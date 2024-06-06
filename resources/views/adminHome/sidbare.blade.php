@@ -1,6 +1,6 @@
 
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-3 border p-3 rounded-lg border-radius-xl my-3 fixed-start ms-3  "style="background-color:aliceblue" id="sidenav-main" style="overflow-y: hidden;">
-  <div class=" navbar- w-auto" id="sidenav-collapse-main">
+  <div class=" navbar- w-auto" id="sidenav-collapse-main ">
     <div class="text-center mb-6">
         <img src="{{ asset('storage/icons/adminVip.svg') }}" alt="Icon" class="img-fluid sidebar-icon w-50">
       </div>
@@ -57,4 +57,6 @@
       <hr class="horizontal dark mt-0">
     </ul>
   </div>
+  
+  
 </aside>

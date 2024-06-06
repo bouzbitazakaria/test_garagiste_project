@@ -1,6 +1,7 @@
 
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 border-3 border p-3 rounded-lg border-radius-xl fixed-start" style="background-color:aliceblue" id="navbarBlur" navbar-scroll="true">
   <div class="container-fluid py-1 px-3" >
+        <img src="{{asset('storage/avatars/logoApp.jpg')}}" style="width: 50px;border-radius:50%;margin-right:5px;" alt="logo">
       <nav aria-label="breadcrumb">
         @if(Request::path()!='/')
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">

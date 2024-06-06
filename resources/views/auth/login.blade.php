@@ -6,8 +6,10 @@
       <div class="page-header min-vh-75" >
         <div class="container">
           <div class="row">
+            
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
               <div class="card card-plain mt-4">
+                <img src="{{asset('storage/avatars/logoApp.jpg')}}" style="width: 150px;border-radius:50%;margin-left:auto;margin-right:auto" alt="logo">
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome to Garagiste</h3>
                 </div>
