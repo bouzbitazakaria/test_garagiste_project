@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="col-12  m-1 p-3 " >
-    <a href="{{ route('vehicles.create') }}" class="btn btn-success">+ Add new vehicle</a>
     @if(session('success'))
-        <div class="text-success-500">{{ session('success') }}</div>
+        <div class="alert alert-success" role="alert">{{ session('success') }}</div>
     @endif
+    <a href="{{ route('vehicles.create') }}" class="btn btn-success">+ Add new vehicle</a>
         <div class="row">
             @if (!$vehicles->isEmpty())
                 @foreach ($vehicles as $vehicle)
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="card">
                             <div class="card-header p-0 mx-3 mt-2 position-relative z-index-1">
                                   <img class="img-fluid border-radius-lg" src="{{"storage/avatars/".$vehicle->picture}}" alt="">

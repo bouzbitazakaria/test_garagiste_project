@@ -36,10 +36,10 @@ class ReparationController extends Controller
             'status' => 'required',
             'startDate' => 'required',
             'endDate' => 'required',
-            'mechanicNotes' => 'required',
-            'clientNotes' => '',
+            'mechanicNotes' => 'required'
         ]);
 
+        
         $mecanicID = auth()->user()->id;
 
         $reparationData['description'] = $request->description;
@@ -47,14 +47,12 @@ class ReparationController extends Controller
         $reparationData['startDate'] = $request->startDate;
         $reparationData['endDate'] = $request->endDate;
         $reparationData['mechanicNotes'] = $request->mechanicNotes;
-        $reparationData['clientNotes'] = $request->clientNotes;
         $reparationData['vehicleID'] = $request->vehicleID;
-
         if ($mecanicID) {
             $reparationData['mechanicID'] = $mecanicID;
 
             $reparation = Reparation::create($reparationData);
-
+            
             if ($reparation) {
                 return redirect()->route('reparations.index');
             }

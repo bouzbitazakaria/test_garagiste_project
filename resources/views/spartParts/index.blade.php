@@ -1,14 +1,13 @@
 @extends('adminHome.index')
 
 @section('content')
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+    
     <div class="container">
         <div class="row">
             <div class="col-md-10">
                 <div class="row">
                     @if (!$spareParts->isEmpty())
+                    <div class="row overflow-auto" style="max-height: 600px;"> <!-- Adjust max-height according to your needs -->
                         @foreach ($spareParts as $sparePart)
                             <div class="col-md-4 mb-4">
                                 <div class="card">
@@ -20,10 +19,10 @@
                                         <p class="card-text"><strong>Stock:</strong> {{ $sparePart->stock }}</p>
                                         <div class="d-flex justify-content-between">
                                             <button type="button" class="btn btn-outline-info btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#editModal-{{ $sparePart->id }}">
-                                                 Edit
+                                                Edit
                                             </button>
                                             <button type="button" class="btn btn-outline-danger btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $sparePart->id }}">
-                                                 Remove
+                                                Remove
                                             </button>
                                         </div>
                                     </div>
@@ -32,6 +31,8 @@
                             @include('spartParts.modals.edit',['sparePart'=>$sparePart])
                             @include('spartParts.modals.remove',['sparePart'=>$sparePart])
                         @endforeach
+                    </div>
+                    
                     @else
                         <div class="col-md-12">
                             <h3 class="py-3 text-center">No spare parts available</h3>
@@ -66,6 +67,9 @@
             </div>
         </div>
     </div>
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
     <script>
         function submitForm() {
             document.getElementById('importForm').submit();

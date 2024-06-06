@@ -44,7 +44,7 @@
                                     <td class="text-center text-sm font-weight-normal">{{ $repair['startDate'] }}</td>
                                     <td class="text-center text-sm font-weight-normal">{{ $repair['endDate'] }}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-outline-dark btn-sm p-2" data-bs-toggle="modal" data-bs-target="#editModal-{{ $repair['id'] }}">Edit Comment</button>
+                                        <button type="button" class="btn btn-outline-dark btn-sm p-2" data-bs-toggle="modal" data-bs-target="#editModal-{{ $repair['id'] }}">view notes</button>
                                     </td>
                                 </tr>
 
@@ -53,7 +53,7 @@
                                     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editCommentModalLabel">Edit Comment</h5>
+                                                <h5 class="modal-title" id="editCommentModalLabel">notes</h5>
                                                 <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Facture;
 use App\Models\Reparation;
 use App\Models\Vehicule;
@@ -19,6 +20,17 @@ class FactureController extends Controller
             ->select('factures.*', 'clients.firstName', 'clients.lastName')
             ->get();
             return view('invoices.index',compact('invoices'));
+
+        }elseif($userRole === 'client'){
+
+            $client =Client::where('userID',auth()->user()->id)->first();
+
+            $invoices = Facture::join('vehicles', 'factures.vehicleID', '=', 'vehicles.id')
+            ->select('factures.*', 'vehicles.marke', 'vehicles.model')
+            ->where('factures.clientID', $client->id)
+            ->get();
+            
+            return view('clients.invoices',compact('invoices'));
         }
 
         

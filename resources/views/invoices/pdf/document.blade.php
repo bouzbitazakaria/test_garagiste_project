@@ -63,10 +63,13 @@
                 <td>{{ $invoice->created_at }}</td>
             </tr>
         </table>
-        <div class="signature">
+
+        @if (auth()->user()->role === 'admin')
+            <div class="signature">
             <p>Signature</p>
             <div class="signature-line"></div>
         </div>
+        @endif
     </div>
 </body>
 </html>

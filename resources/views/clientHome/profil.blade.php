@@ -42,7 +42,7 @@
               <button type="submit" class="btn btn-primary">Edit Profil</button>
           </div>
           @if(session('success'))
-            <div class="text-success-500">{{ session('success') }}</div>
+            <div class="text-success">{{ session('success') }}</div>
             @endif
       </div>
     </form>

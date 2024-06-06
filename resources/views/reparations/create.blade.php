@@ -11,6 +11,9 @@
     </a>
     <div class="col-12 max-w-md mx-2 p-2 ">
         <div class="row">
+            @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
             @if (!$vehicles->isEmpty())
                 @foreach ($vehicles as $vehicle)
                     <div class="col-md-4">
@@ -45,7 +48,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('reparations.store') }}" method="POST" class="max-w-md mx-auto  rounded shadow">
+                                    <form action="{{ route('reparations.store') }}" method="POST" class="w-full ">
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-6">
@@ -57,7 +60,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="status" class="form-control-label" >Status</label>
-                                                    <select class="form-control" id="status" name="status" disabled>
+                                                    <select class="form-control" id="status" name="status">
                                                         <option value="pending" selected>Pending</option>
                                                         <option value="in progress">In Progress</option>
                                                         <option value="finished">Finished</option>
@@ -75,27 +78,28 @@
                                                     <label for="endDate" class="form-control-label">End Date</label>
                                                     <input class="form-control" type="date" id="endDate" name="endDate" required>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="mechanicNotes" class="form-control-label">Mechanic Notes</label>
-                                                        <input class="form-control" type="text" id="mechanicNotes" name="mechanicNotes" required>
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="mechanicNotes" class="form-control-label">Mechanic Notes</label>
+                                                    <input class="form-control" type="text" id="mechanicNotes" name="mechanicNotes" required>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="clientNotes" class="form-control-label">Client Notes</label>
-                                                        <input class="form-control" type="text" id="clientNotes" name="clientNotes" disabled>
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" name="vehicleID" value="{{ $vehicle->id }}">
+                                            </div>    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="clientNotes" class="form-control-label">Client Notes</label>
+                                                    <input class="form-control" type="text" id="clientNotes" name="clientNotes" disabled>
+                                                </div>                                           
                                             </div>
                                             <div class="row">
+                                                <input type="hidden" name="vehicleID" value="{{ $vehicle->id }}">
                                                 <div class="col-md-6">
                                                     <button type="submit" class="btn btn-primary">Repair Vehicle</button>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
+                                    
                                     <div class="modal-footer gap-3">
                                         <button type="button" class="btn btn-outline-success btn-sm m-0" data-bs-dismiss="modal">Cancel</button>
                                     </div>
@@ -107,8 +111,7 @@
                     <h3 class="py-3 text-center text-white">No vehicles to repair</h3>
                 @endif
             </div>
-
 </div>
 
-    @endsection
+@endsection
     
