@@ -16,13 +16,13 @@
         @endif
 
         <div class="card">
-            <div class="card-body p-0">
+            <div class="card-body p-0 mt-4">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class="bg-light">
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First Name</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First Name</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
@@ -31,11 +31,11 @@
                         <tbody id="searchResults">
                             @forelse ($clients as $client)
                                 <tr>
-                                    <td class="text-sm font-weight-normal">{{ $client->firstName }}</td>
-                                    <td class="text-sm font-weight-normal">{{ $client->lastName }}</td>
+                                    <td class="text-center text-sm font-weight-normal">{{ $client->firstName }}</td>
+                                    <td class="text-center text-sm font-weight-normal">{{ $client->lastName }}</td>
                                     <td class="text-center text-sm font-weight-normal">{{ $client->address }}</td>
                                     <td class="text-center text-sm font-weight-normal">{{ $client->phoneNumber }}</td>
-                                    <td class="text-end">
+                                    <td class="text-center">
                                         <button type="button" class="btn btn-outline-info btn-sm  p-2"  data-bs-toggle="modal" data-bs-target="#editModal-{{ $client->id }}">Edit</button>
                                         <button type="button" class="btn btn-outline-danger btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $client->id }}">Remove</button>
                                         <button type="button" class="btn btn-outline-dark btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#vehiclesModal-{{ $client->id }}">Vehicles</button>

@@ -16,13 +16,13 @@
     @endif
 
     <div class="card">
-        <div class="card-body p-0">
+        <div class="card-body p-0 mt-4">
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead class="bg-light">
                         <tr>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First Name</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First Name</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Salary</th>
@@ -33,13 +33,13 @@
                     <tbody id="searchResults">
                         @forelse ($mecaniciens as $mecanicien)
                             <tr>
-                                <td class="text-sm font-weight-normal">{{ $mecanicien->firstName }}</td>
-                                <td class="text-sm font-weight-normal">{{ $mecanicien->lastName }}</td>
+                                <td class="text-center text-sm font-weight-normal">{{ $mecanicien->firstName }}</td>
+                                <td class="text-center text-sm font-weight-normal">{{ $mecanicien->lastName }}</td>
                                 <td class="text-center text-sm font-weight-normal">{{ $mecanicien->address }}</td>
                                 <td class="text-center text-sm font-weight-normal">{{ $mecanicien->phoneNumber }}</td>
                                 <td class="text-center text-sm font-weight-normal">{{ $mecanicien->salary }} DH</td>
                                 <td class="text-center text-sm font-weight-normal">{{ $mecanicien->recruited_at }}</td>
-                                <td class="text-end">
+                                <td class="text-center">
                                     <button type="button" class="btn btn-outline-info btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#editModal-{{ $mecanicien->id }}">Edit</button>
                                     <button type="button" class="btn btn-outline-danger btn-sm  p-2" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $mecanicien->id }}">Remove</button>
                                 </td>
