@@ -21,11 +21,11 @@
                     <table class="table table-hover">
                         <thead class="bg-light">
                             <tr>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First Name</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+                                <th class="text-center text-uppercase text-secondary text-xs text-danger  font-weight-bolder opacity-7">First Name</th>
+                                <th class="text-center text-uppercase text-secondary text-xs text-danger  font-weight-bolder opacity-7">Last Name</th>
+                                <th class="text-center text-uppercase text-secondary text-xs text-danger  font-weight-bolder opacity-7">Address</th>
+                                <th class="text-center text-uppercase text-secondary text-xs text-danger  font-weight-bolder opacity-7">Phone Number</th>
+                                <th class="text-center text-uppercase text-secondary text-xs text-danger  font-weight-bolder opacity-7">Actions</th>
                             </tr>
                         </thead>
                         <tbody id="searchResults">

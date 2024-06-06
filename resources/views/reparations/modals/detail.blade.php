@@ -28,8 +28,8 @@
                            </div>
                     </div>
                     <div class="col-md-3">
-                       
-                        <form action="{{ route('repairSparePart.store') }}" method="POST">
+                       @if ($reparation->status != 'finished')
+                           <form action="{{ route('repairSparePart.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="repair_id" value="{{ $reparation->id }}">
                             <div class="mb-3">
@@ -46,6 +46,20 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Add Spare Part</button>
                         </form>
+                       @else
+                       <form action="{{ route('invoices.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="repair_id" value="{{ $reparation->id }}">
+                        <div class="mb-3">
+                            <label for="spare_part_id" class="form-label">additional Charges</label>
+                            <input type="number" name="additionalCharges" class="form-control" required>
+                            <input type="hidden" name="sparePartsAmount" value="{{ $reparation->spareParts->sum(function($sparePart) { return $sparePart->price * $sparePart->pivot->quantity; }) }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">generate invoice</button>
+                    </form>
+                       
+                       @endif
+                        
                     </div>
                 </div>
                     

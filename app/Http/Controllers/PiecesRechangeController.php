@@ -96,16 +96,11 @@ class PiecesRechangeController extends Controller
     {
         return Excel::download(new PiecesRechargeExport, 'spareParts.xlsx');
     }
-    /**
-
-    * @return \Illuminate\Support\Collection
-
-    */
+    
     public function import() 
     {
         Excel::import(new PiecesRechargeImport,request()->file('file'));
        
         return back();
-
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FactureController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MecanicienController;
 use App\Http\Controllers\PiecesRechangeController;
@@ -59,7 +60,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('clientRepairs',[ClientController::class, 'clientRepairs'])->name('clients.clientRepairs');
         Route::post('clientRepairs',[ClientController::class, 'updateClientComment'])->name('clients.updateClientComment');
         Route::get('clients-export',[ClientController::class, 'export'])->name('clients.export');
-        Route::post('clients-import',[ClientController::class, 'import'])->name('clients.import');
         Route::get('/api/clients/search', [ClientController::class, 'search'])->name('clients.search');
 
         //
@@ -67,8 +67,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         //
         Route::resource('mecaniciens',MecanicienController::class);
         Route::get('mecaniciens-export',[MecanicienController::class, 'export'])->name('mecaniciens.export');
-        Route::post('mecaniciens-import',[MecanicienController::class, 'import'])->name('mecaniciens.import');
         Route::get('/api/mecaniciens/search', [MecanicienController::class, 'search'])->name('mecaniciens.search');
+        Route::resource('invoices',FactureController::class);
         //
         Route::resource('reparations',ReparationController::class);
         Route::resource('profil',ProfilContoller::class);
