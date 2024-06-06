@@ -12,6 +12,7 @@
               <th class="text-center text-uppercase text-secondary text-xs text-danger font-weight-bolder opacity-7">Additional charges</th>
               <th class="text-center text-uppercase text-secondary text-xs text-danger font-weight-bolder opacity-7">Total</th>
               <th class="text-center text-uppercase text-secondary text-xs text-danger font-weight-bolder opacity-7">Created At</th>
+              <th class="text-center text-uppercase text-secondary text-xs text-danger font-weight-bolder opacity-7">PDF</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +22,9 @@
                 <td class="text-center text-sm font-weight-normal">{{ number_format($invoice->additionalCharges, 2) }}DH</td>
                 <td class="text-center text-sm font-weight-normal">{{ number_format($invoice->totalAmount, 2) }}DH</td>
                 <td class="text-center text-sm font-weight-normal">{{ $invoice->created_at }}</td>
+                <td class="text-center text-sm font-weight-normal">
+                  <a href="{{ route('invoice.pdf', $invoice->id) }}">Download</a>
+              </td>
               </tr>
             @endforeach
           </tbody>

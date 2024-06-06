@@ -69,6 +69,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('mecaniciens-export',[MecanicienController::class, 'export'])->name('mecaniciens.export');
         Route::get('/api/mecaniciens/search', [MecanicienController::class, 'search'])->name('mecaniciens.search');
         Route::resource('invoices',FactureController::class);
+        Route::get('/invoice/{id}/pdf', [FactureController::class, 'generatePDF'])->name('invoice.pdf');
+
         //
         Route::resource('reparations',ReparationController::class);
         Route::resource('profil',ProfilContoller::class);

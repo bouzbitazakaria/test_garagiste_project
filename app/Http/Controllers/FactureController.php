@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use App\Models\Facture;
 use App\Models\Reparation;
 use App\Models\Vehicule;
+use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Http\Request;
 
 class FactureController extends Controller
@@ -55,4 +55,19 @@ class FactureController extends Controller
         }
         
     }
+    public function generatePDF($id)
+{
+    $invoice = Facture::join('clients', 'factures.clientID', '=', 'clients.id')
+                      ->select('factures.*', 'clients.firstName', 'clients.lastName')
+                      ->where('factures.id', $id)
+                      ->first();
+
+    $data = [
+        'invoice' => $invoice
+    ];
+
+    $pdf = PDF::loadView('invoices.pdf.document', $data);
+
+    return $pdf->download('invoice_' . $invoice->firstName.'_'.$invoice->lastName. '.pdf');
+}
 }
