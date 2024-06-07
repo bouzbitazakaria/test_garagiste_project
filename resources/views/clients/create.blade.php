@@ -79,12 +79,6 @@
         </div>
     </form>
 </div>
-<style>
-    .app{
-        background-image: url('storage/avatars/pexels-hyundaimotorgroup-20428028.jpg');
-        background-size: cover;
-        background-position: center;
-    }
-  </style>
+
 
 @endsection

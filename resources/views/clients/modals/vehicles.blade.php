@@ -50,7 +50,7 @@
                   <form action="{{ route('vehicles.destroy', $vehicle->id) }}" method="post">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="btn btn-outline-danger btn-sm m-0">Remove Vehicle</button> <small>Once clicked, it will be removed!</small>
+                      <button type="submit" class="btn btn-outline-danger btn-sm m-0">Remove Vehicle</button> <small class="text-danger">Once clicked, it will be removed!</small>
                   </form>
                   <hr class="horizontal dark mt-2">
               @endforeach

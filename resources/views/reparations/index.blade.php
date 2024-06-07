@@ -53,17 +53,11 @@
                                     <td class="align-middle text-center">
                                         <span class="text-secondary text-xs font-weight-bold">{{ date('F j, Y', strtotime($reparation->endDate)) }}</span>
                                     </td>
-                                    @if ($reparation->status !=='finished')
                                     <td class="align-middle text-end">
                                         <button type="button" class="btn btn-outline-success btn-sm m-0 p-1" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $reparation->id }}">Detail</button>
                                         <button type="button" class="btn btn-outline-info btn-sm m-0 p-1" data-bs-toggle="modal" data-bs-target="#editModal-{{ $reparation->id }}">Edit</button>
                                         <button type="button" class="btn btn-outline-danger btn-sm m-0 p-1" data-bs-toggle="modal" data-bs-target="#removeModal-{{ $reparation->id }}">Remove</button>
                                     </td>
-                                    @else
-                                    <td class="align-middle text-center">
-                                        <h6 class="mb-0 text-sm text-success">Invoice Created for this repair</h6>
-                                    </td>
-                                    @endif
                                     
                                     @include('reparations.modals.detail', ['reparation' => $reparation])
                                     @include('reparations.modals.edit',['reparation'=>$reparation])

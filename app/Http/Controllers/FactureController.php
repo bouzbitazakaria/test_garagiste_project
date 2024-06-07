@@ -51,13 +51,14 @@ class FactureController extends Controller
         };
 
         $repair = Reparation::where('id',$request->repair_id)->first();
-        $vehicle =Vehicule::where('id', $$repair->vehicleID)->first();
+        $vehicle =Vehicule::where('id', $repair->vehicleID)->first();
 
         if($vehicle){
             $invoice = Facture::create([
                 'repairID'=> $request->repair_id,
                 'clientID' => $vehicle->clientID,
                 'additionalCharges' =>$request->additionalCharges,
+                'vehicleID'=> $vehicle->id,
                 'totalAmount' => $totalAmount
             ]);
 
